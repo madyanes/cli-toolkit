@@ -24,8 +24,8 @@ class Wrapper(object):
     def content_left_right(self, max_length: int, filled_characters: str = '-', content: str = '', start_from_right: bool = False) -> str:
         max_length: int = self.get_max_length(max_length)
         content_length: int = len(content)
-        filled_characters_length_needed = max_length - content_length
-        calculated_filled_characters = filled_characters * filled_characters_length_needed
+        filled_characters_length_needed: int = max_length - content_length
+        calculated_filled_characters: str = filled_characters * filled_characters_length_needed
         if start_from_right:
             return calculated_filled_characters + content
         return content + calculated_filled_characters
