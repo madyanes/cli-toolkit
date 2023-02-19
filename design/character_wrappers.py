@@ -1,7 +1,7 @@
 import os
 
 
-class Wrapper(object):
+class Design(object):
     """
     Centering string wrapped with any characters.
     """
@@ -35,12 +35,12 @@ class Wrapper(object):
 
 
 if __name__ == '__main__':
-    wrapper = Wrapper(100)
-    result = wrapper.content_left_right('_', 'I ❤ Python')
+    design = Design(100)
+    result = design.content_left_right('_', 'I ❤ Python')
     print(result)
-    result = wrapper.content_center('_', 'I ❤ Python')
+    result = design.content_center('_', 'I ❤ Python')
     print(result)
-    result = wrapper.content_left_right('_', 'I ❤ Python', True)
+    result = design.content_left_right('_', 'I ❤ Python', True)
     print(result)
 
     # output
