@@ -6,6 +6,7 @@ class MenuBuilder(object):
     menu_desc = None
     wrapper = None
     wrap_char = None
+    state = True
 
     def __init__(self, menu_desc: str = 'MAIN MENU', max_char_length: int = 50, wrap_char: str = '='):
         self.menu_desc = menu_desc
@@ -28,6 +29,8 @@ class MenuBuilder(object):
 
     def process_menu(self, selected_menu):
         for menu_item in self.menu:
+            if selected_menu == 'q' or 'Q':
+                self.stop()
             if selected_menu == menu_item['key']:
                 print(menu_item['fn']())
                 print(self.wrapper.content_left_right('_', '(Press enter to continue.)', True))
@@ -35,11 +38,14 @@ class MenuBuilder(object):
                 break
 
     def run(self):
-        while True:
+        while self.state:
             self.get_menu()
             print()
             selected_menu = input('Select a menu: ')
             self.process_menu(selected_menu)
+
+    def stop(self):
+        self.state = False
 
 
 def tell_your_name():
