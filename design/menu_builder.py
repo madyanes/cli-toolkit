@@ -28,9 +28,9 @@ class MenuBuilder(object):
         print(self.wrapper.content_center(self.wrap_char))
 
     def process_menu(self, selected_menu):
+        if selected_menu == 'q' or selected_menu == 'Q':
+            self.stop()
         for menu_item in self.menu:
-            if selected_menu == 'q' or 'Q':
-                self.stop()
             if selected_menu == menu_item['key']:
                 print(menu_item['fn']())
                 print(self.wrapper.content_left_right('_', '(Press enter to continue.)', True))
