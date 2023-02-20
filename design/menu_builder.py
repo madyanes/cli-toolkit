@@ -23,8 +23,10 @@ class MenuBuilder(object):
 
     def get_menu(self):
         print(self.wrapper.content_center(self.wrap_char, content=self.menu_desc))
+        print()
         for menu_item in self.menu:
             print(menu_item['key'] + '/', menu_item['value'])
+        print()
         print(self.wrapper.content_center(self.wrap_char))
 
     def process_menu(self, selected_menu):
@@ -32,6 +34,9 @@ class MenuBuilder(object):
             self.stop()
         for menu_item in self.menu:
             if selected_menu == menu_item['key']:
+                print()
+                print(self.wrapper.content_left_right('.', '.'))
+                print()
                 print(menu_item['fn']())
                 print(self.wrapper.content_left_right('_', '(Press enter to continue.)', True))
                 input()

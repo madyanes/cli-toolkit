@@ -16,7 +16,7 @@ def solve_math():
 
 
 if __name__ == '__main__':
-    menu = MenuBuilder('Available Menu'.upper(), 100)
+    menu = MenuBuilder('Available Menu'.upper(), 80, ':')
     menu.register('a', 'Tell me your name!', tell_your_name)
     menu.register('b', 'Can you solve this math?', solve_math)
     menu.run()
